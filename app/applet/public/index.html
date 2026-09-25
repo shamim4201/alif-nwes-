@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Alif Shen News - Official Portal (official1.online)</title>
+  <meta name="description" content="Alif Shen Group News Network - Breaking headlines, politics, lifestyle, tech, and global updates.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=120&q=80" type="image/jpeg">
+
+  <!-- Google Fonts: Inter & Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            appNavy: '#031B4D',
+            appBlue: '#0073E6',
+            appLightBlue: '#1EA7FD',
+            appRed: '#C91A25',
+            appRedAccent: '#E50914',
+            appGold: '#B8860B',
+            appBg: '#F8FAFC',
+            badgeTech: '#00897B',
+            badgeTravel: '#8E44AD',
+            badgeSports: '#0288D1',
+            badgeLifestyle: '#E91E63',
+            badgeCreative: '#E65100',
+            badgeFoods: '#2E7D32'
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            serif: ['Merriweather', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #F8FAFC;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      font-family: 'Inter', -apple-system, sans-serif;
+    }
+    .line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 antialiased min-h-screen pb-20 flex flex-col justify-between">
+
+  <!-- ==================== 1. WHITE TOP APP BAR (EXACT ANDROID APP HEADER) ==================== -->
+  <header class="bg-white sticky top-0 z-40 shadow-xs border-b border-[#E2E8F0]">
+    <div class="max-w-2xl mx-auto px-3.5 h-14 flex items-center justify-between">
+      
+      <!-- Hamburger Menu Button -->
+      <button onclick="toggleDrawer()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 text-[#031B4D] active:scale-95 transition" aria-label="Open Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Center Logo: ALIF SHEN GROUP // NEWS (Exact Android Vector Match) -->
+      <div onclick="switchTab('headlines')" class="cursor-pointer flex items-center space-x-2">
+        <!-- Target / Globe Emblem -->
+        <div class="w-8 h-8 rounded-lg bg-[#F1F5F9] border border-[#E2E8F0] flex items-center justify-center relative p-1 shadow-2xs">
+          <div class="w-6 h-6 rounded-full border-2 border-appBlue flex items-center justify-center relative">
+            <svg class="w-3.5 h-3.5 text-appBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
+            <span class="w-1.5 h-1.5 rounded-full bg-appRedAccent absolute -top-0.5 -right-0.5"></span>
+          </div>
+        </div>
+
+        <!-- Typography -->
+        <div class="flex items-center space-x-1">
+          <span class="font-black text-[14px] text-[#031B4D] tracking-tight">ALIF SHEN</span>
+          <span class="font-bold text-[12px] text-appBlue tracking-wide">GROUP</span>
+          <!-- Red Slanted NEWS Badge -->
+          <div class="bg-appRedAccent text-white text-[10px] font-black italic px-1.5 py-0.5 rounded -rotate-3 ml-0.5 shadow-xs">
+            // NEWS
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Search Icon -->
+      <button onclick="switchTab('explore')" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 text-[#031B4D] active:scale-95 transition" aria-label="Search">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ==================== 2. RED TRENDING TICKER BAR ==================== -->
+  <div onclick="openFirstBreaking()" class="bg-[#C91A25] text-white py-2 px-3.5 cursor-pointer shadow-inner">
+    <div class="max-w-2xl mx-auto flex items-center space-x-2 text-[12px]">
+      <div class="bg-white/20 p-1 rounded flex items-center justify-center shrink-0">
+        <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <span class="font-black tracking-wider text-[11px] shrink-0">TRENDING:</span>
+      <div id="tickerText" class="truncate font-semibold flex-1 text-[12px]">
+        Loading live trending headlines...
+      </div>
+      <svg class="w-4 h-4 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT AREA ==================== -->
+  <main class="max-w-2xl mx-auto w-full px-3.5 pt-2 pb-6 space-y-4">
+
+    <!-- ========== TAB 1: HEADLINES (JANNAH MAGAZINE FEED) ========== -->
+    <div id="tabHeadlines" class="space-y-4">
+      
+      <!-- JANNAH HERO GRID: 1 Big Slider + 2 Small Split Tiles -->
+      <section id="jannahHeroGrid" class="space-y-1.5">
+        <!-- Big Hero Slide -->
+        <div id="heroMainBox" class="relative w-full h-[210px] rounded-md overflow-hidden shadow-sm bg-slate-900 cursor-pointer">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- 2 Split Sub-Tiles -->
+        <div id="heroSubTiles" class="grid grid-cols-2 gap-1.5">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- SECTION: TRENDING NEWS (2-Column Grid) -->
+      <section class="space-y-2.5 pt-1">
+        <!-- Section Header with Red/Orange Accent Bar -->
+        <div class="flex items-center space-x-2">
+          <span class="w-1 h-4 bg-[#E65100] rounded-full"></span>
+          <h2 class="font-black text-sm uppercase tracking-wide text-slate-900 font-sans">Trending News</h2>
+        </div>
+
+        <!-- 2-Column Grid Cards -->
+        <div id="trendingGrid" class="grid grid-cols-2 gap-2.5">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Centered "More Stories v" Pill Button -->
+        <div class="flex justify-center pt-2">
+          <button onclick="expandMoreStories()" class="bg-[#031B4D] hover:bg-[#092565] text-white text-xs font-bold px-5 py-2 rounded-full shadow-sm flex items-center space-x-1.5 active:scale-95 transition">
+            <span>More Stories</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- SECTION: SPORTS & FOOTBALL (Dark Showcase Theme) -->
+      <section class="bg-[#0A192F] text-white p-3.5 rounded-lg space-y-3 shadow-md mt-4">
+        <div class="flex items-center justify-between border-b border-white/10 pb-2">
+          <div class="flex items-center space-x-2">
+            <span class="w-1 h-3.5 bg-[#C91A25] rounded-full"></span>
+            <h3 class="font-black text-xs uppercase tracking-wider text-white">Sports & Football</h3>
+          </div>
+          <span class="text-[10px] text-slate-400">Matchday Wire</span>
+        </div>
+        <div id="sportsGrid" class="grid grid-cols-2 gap-2">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- SECTION: WHAT'S NEW (2-Column Grid) -->
+      <section class="space-y-2.5 pt-2">
+        <div class="flex items-center space-x-2">
+          <span class="w-1 h-4 bg-[#00897B] rounded-full"></span>
+          <h2 class="font-black text-sm uppercase tracking-wide text-slate-900 font-sans">What's New</h2>
+        </div>
+        <div id="whatsNewGrid" class="grid grid-cols-2 gap-2.5">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ========== TAB 2: EXPLORE / SEARCH ========== -->
+    <div id="tabExplore" class="hidden space-y-3 pt-1">
+      <div class="relative">
+        <input type="text" id="searchInput" placeholder="Search news, topics, authors..." class="w-full bg-white pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-sm shadow-2xs focus:outline-hidden focus:border-appBlue">
+        <svg class="w-5 h-5 text-slate-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+
+      <!-- Categories Pills -->
+      <div class="flex items-center space-x-1.5 overflow-x-auto no-scrollbar py-1">
+        <button onclick="filterByCat('All')" class="cat-pill active px-3.5 py-1 rounded-full text-xs font-bold bg-[#031B4D] text-white">All</button>
+        <button onclick="filterByCat('Technology')" class="cat-pill px-3.5 py-1 rounded-full text-xs font-bold bg-white text-slate-700 border border-slate-200">Tech</button>
+        <button onclick="filterByCat('Travel')" class="cat-pill px-3.5 py-1 rounded-full text-xs font-bold bg-white text-slate-700 border border-slate-200">Travel</button>
+        <button onclick="filterByCat('Sports')" class="cat-pill px-3.5 py-1 rounded-full text-xs font-bold bg-white text-slate-700 border border-slate-200">Sports</button>
+        <button onclick="filterByCat('Life Style')" class="cat-pill px-3.5 py-1 rounded-full text-xs font-bold bg-white text-slate-700 border border-slate-200">Lifestyle</button>
+        <button onclick="filterByCat('Creative')" class="cat-pill px-3.5 py-1 rounded-full text-xs font-bold bg-white text-slate-700 border border-slate-200">Creative</button>
+        <button onclick="filterByCat('Foods')" class="cat-pill px-3.5 py-1 rounded-full text-xs font-bold bg-white text-slate-700 border border-slate-200">Foods</button>
+      </div>
+
+      <div id="searchResults" class="space-y-2.5">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- ========== TAB 3: SAVED (BOOKMARKS) ========== -->
+    <div id="tabSaved" class="hidden space-y-3 pt-1">
+      <div class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r-lg flex items-center justify-between">
+        <div>
+          <h3 class="font-bold text-amber-900 text-sm">🔖 Offline Reading List</h3>
+          <p class="text-[11px] text-amber-700">Stories saved on this device for offline reading</p>
+        </div>
+        <span id="savedCountBadge" class="bg-amber-500 text-white font-black text-xs px-2.5 py-0.5 rounded-full">0</span>
+      </div>
+      <div id="savedList" class="space-y-2.5">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- ========== TAB 4: ABOUT & INFO ========== -->
+    <div id="tabAbout" class="hidden space-y-3 pt-1">
+      <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-2xs space-y-3 text-center">
+        <div class="w-14 h-14 mx-auto rounded-xl bg-[#F1F5F9] border border-[#E2E8F0] flex items-center justify-center p-2 shadow-inner">
+          <div class="w-10 h-10 rounded-full border-2 border-appBlue flex items-center justify-center relative">
+            <svg class="w-6 h-6 text-appBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
+            <span class="w-2 h-2 rounded-full bg-appRedAccent absolute -top-0.5 -right-0.5"></span>
+          </div>
+        </div>
+        <div>
+          <h2 class="font-black text-base text-[#031B4D]">ALIF SHEN GROUP NEWS</h2>
+          <p class="text-xs text-slate-500 font-medium">Independent Digital Journalism & Media Network</p>
+          <p class="text-[11px] text-slate-400 mt-0.5">Domain: <span class="font-mono text-appBlue font-semibold">official1.online</span></p>
+        </div>
+        <div class="pt-3 border-t border-slate-100 grid grid-cols-2 gap-2 text-left text-xs text-slate-700">
+          <div class="bg-slate-50 p-2.5 rounded-lg">
+            <span class="font-bold text-[#031B4D] block">🌐 Official Portal</span>
+            <span>https://official1.online</span>
+          </div>
+          <div class="bg-slate-50 p-2.5 rounded-lg">
+            <span class="font-bold text-[#031B4D] block">📱 Android App</span>
+            <span class="text-emerald-600 font-semibold">Active & Live</span>
+          </div>
+        </div>
+        <button onclick="openAdminModal()" class="w-full bg-[#031B4D] hover:bg-[#092565] text-white font-bold py-2.5 rounded-lg text-xs transition">
+          🛡️ Open Publisher & Admin Studio
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==================== 4. WHITE BOTTOM APP NAVIGATION BAR (EXACT 4 TABS MATCH) ==================== -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-[#E2E8F0] z-40 py-1.5 px-2 shadow-lg">
+    <div class="max-w-md mx-auto grid grid-cols-4 text-center">
+      
+      <!-- 1. Headlines -->
+      <button onclick="switchTab('headlines')" id="navHeadlines" class="nav-tab active flex flex-col items-center justify-center text-[#031B4D] font-bold py-1">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+        </svg>
+        <span class="text-[10px] tracking-tight">Headlines</span>
+      </button>
+
+      <!-- 2. Explore -->
+      <button onclick="switchTab('explore')" id="navExplore" class="nav-tab flex flex-col items-center justify-center text-slate-500 font-medium py-1">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <span class="text-[10px] tracking-tight">Explore</span>
+      </button>
+
+      <!-- 3. Saved (With yellow badge '3') -->
+      <button onclick="switchTab('saved')" id="navSaved" class="nav-tab flex flex-col items-center justify-center text-slate-500 font-medium py-1 relative">
+        <div class="relative">
+          <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+          </svg>
+          <span id="navSavedBadge" class="absolute -top-1 -right-2 bg-amber-400 text-slate-900 font-black text-[9px] w-4 h-4 rounded-full flex items-center justify-center shadow-2xs">3</span>
+        </div>
+        <span class="text-[10px] tracking-tight">Saved</span>
+      </button>
+
+      <!-- 4. About & Info -->
+      <button onclick="switchTab('about')" id="navAbout" class="nav-tab flex flex-col items-center justify-center text-slate-500 font-medium py-1">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span class="text-[10px] tracking-tight">About & Info</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- ==================== 5. SLIDE-OVER NAVIGATION DRAWER (EXACT ANDROID DRAWER) ==================== -->
+  <div id="drawerOverlay" onclick="toggleDrawer()" class="fixed inset-0 bg-black/60 backdrop-blur-2xs z-50 hidden transition-opacity"></div>
+  <aside id="navDrawer" class="fixed top-0 bottom-0 left-0 w-[280px] bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col justify-between">
+    <div>
+      <!-- Drawer Header -->
+      <div class="p-4 bg-[#031B4D] text-white flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
+            <span class="font-black text-sm text-appRedAccent">//</span>
+          </div>
+          <div>
+            <h3 class="font-black text-sm tracking-wide">ALIF SHEN NEWS</h3>
+            <p class="text-[9px] text-slate-300 font-mono">official1.online</p>
+          </div>
+        </div>
+        <button onclick="toggleDrawer()" class="text-slate-300 hover:text-white p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Categories List -->
+      <div class="p-3 space-y-1 overflow-y-auto max-h-[70vh]">
+        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-3 block py-1">Sections</span>
+        <button onclick="selectCategory('Top Stories')" class="w-full text-left px-3 py-2 rounded-lg font-bold text-xs text-slate-800 hover:bg-slate-100 flex items-center justify-between">
+          <span>Top Stories</span>
+          <span class="text-[10px] text-slate-400">Live</span>
+        </button>
+        <button onclick="selectCategory('Technology')" class="w-full text-left px-3 py-2 rounded-lg font-bold text-xs text-slate-800 hover:bg-slate-100 flex items-center justify-between">
+          <span>Technology</span>
+          <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+        </button>
+        <button onclick="selectCategory('Travel')" class="w-full text-left px-3 py-2 rounded-lg font-bold text-xs text-slate-800 hover:bg-slate-100 flex items-center justify-between">
+          <span>Travel</span>
+          <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+        </button>
+        <button onclick="selectCategory('Sports')" class="w-full text-left px-3 py-2 rounded-lg font-bold text-xs text-slate-800 hover:bg-slate-100 flex items-center justify-between">
+          <span>Sports & Football</span>
+          <span class="w-2 h-2 rounded-full bg-sky-500"></span>
+        </button>
+        <button onclick="selectCategory('Creative')" class="w-full text-left px-3 py-2 rounded-lg font-bold text-xs text-slate-800 hover:bg-slate-100 flex items-center justify-between">
+          <span>Creative & Culture</span>
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+        </button>
+        <button onclick="selectCategory('Foods')" class="w-full text-left px-3 py-2 rounded-lg font-bold text-xs text-slate-800 hover:bg-slate-100 flex items-center justify-between">
+          <span>Foods & Dining</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        </button>
+        <button onclick="selectCategory('Life Style')" class="w-full text-left px-3 py-2 rounded-lg font-bold text-xs text-slate-800 hover:bg-slate-100 flex items-center justify-between">
+          <span>Life Style</span>
+          <span class="w-2 h-2 rounded-full bg-pink-500"></span>
+        </button>
+
+        <div class="pt-2 border-t border-slate-100">
+          <button onclick="toggleDrawer(); openAdminModal();" class="w-full text-left px-3 py-2 rounded-lg font-bold text-xs text-[#031B4D] hover:bg-blue-50 flex items-center space-x-2">
+            <span>🛡️</span>
+            <span>Publisher / Admin Studio</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-3 border-t border-slate-100 bg-slate-50 text-[11px] text-slate-500 flex justify-between items-center">
+      <span>App v2.4.0</span>
+      <span class="text-[#031B4D] font-bold">official1.online</span>
+    </div>
+  </aside>
+
+  <!-- ==================== 6. ARTICLE READER MODAL (ANDROID DETAIL VIEW) ==================== -->
+  <div id="readerModal" class="fixed inset-0 bg-black/75 backdrop-blur-2xs z-50 hidden flex flex-col justify-end sm:justify-center p-0 sm:p-4">
+    <div class="bg-white rounded-t-2xl sm:rounded-xl max-w-xl w-full mx-auto max-h-[92vh] overflow-y-auto shadow-2xl relative p-5 space-y-4">
+      
+      <!-- Top Action Bar -->
+      <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+        <button onclick="closeReader()" class="flex items-center space-x-1 text-slate-700 hover:text-black font-bold text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+          <span>Back</span>
+        </button>
+        <div class="flex items-center space-x-2">
+          <button onclick="toggleAudioReader()" id="btnAudio" class="text-xs bg-[#031B4D] text-white px-3 py-1 rounded-full font-bold flex items-center space-x-1">
+            <span>▶</span> <span>Listen</span>
+          </button>
+          <button onclick="toggleBookmarkActive()" id="btnBookmarkModal" class="p-1.5 rounded-full hover:bg-slate-100 text-slate-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Reader Body -->
+      <div id="readerBody" class="space-y-3">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 7. ADMIN PUBLISHER STUDIO MODAL ==================== -->
+  <div id="adminModal" class="fixed inset-0 bg-black/70 backdrop-blur-2xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-5 space-y-3 shadow-2xl border max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b pb-2">
+        <h3 class="font-bold text-[#031B4D] text-sm uppercase">🛡️ Publisher & Admin Studio</h3>
+        <button onclick="closeAdminModal()" class="text-slate-400 hover:text-slate-600">✕</button>
+      </div>
+
+      <div class="space-y-2.5">
+        <div>
+          <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Headline *</label>
+          <input type="text" id="admTitle" placeholder="Enter bold breaking headline..." class="w-full text-xs p-2.5 border rounded-lg">
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Category *</label>
+            <select id="admCategory" class="w-full text-xs p-2.5 border rounded-lg bg-white">
+              <option>Top Stories</option>
+              <option>Technology</option>
+              <option>Travel</option>
+              <option>Sports</option>
+              <option>Football</option>
+              <option>Creative</option>
+              <option>Foods</option>
+              <option>Life Style</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Author</label>
+            <input type="text" id="admAuthor" value="Tony Stark" class="w-full text-xs p-2.5 border rounded-lg">
+          </div>
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Cover Image URL</label>
+          <input type="url" id="admImage" placeholder="https://images.unsplash.com/..." class="w-full text-xs p-2.5 border rounded-lg">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Article Content *</label>
+          <textarea id="admContent" rows="4" placeholder="Write full news article content..." class="w-full text-xs p-2.5 border rounded-lg"></textarea>
+        </div>
+        <div class="flex items-center space-x-2">
+          <input type="checkbox" id="admBreaking" class="w-4 h-4 text-[#C91A25]">
+          <label for="admBreaking" class="text-xs font-bold text-[#C91A25]">⚡ Mark as BREAKING NEWS</label>
+        </div>
+        <button onclick="publishArticle()" id="btnPublish" class="w-full bg-[#C91A25] hover:bg-red-700 text-white font-bold py-2.5 rounded-lg text-xs transition shadow-sm">
+          🚀 Publish to Live App & Web
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    const RTDB_URL = "https://project-ff8aa870-1a80-48d9-8d2-default-rtdb.firebaseio.com/articles.json";
+    
+    // Category Color Mapping matching Android App
+    const BADGE_COLORS = {
+      'Technology': 'bg-[#00897B]',
+      'Travel': 'bg-[#8E44AD]',
+      'Sports': 'bg-[#0288D1]',
+      'Football': 'bg-[#0288D1]',
+      'Life Style': 'bg-[#E91E63]',
+      'Creative': 'bg-[#E65100]',
+      'Foods': 'bg-[#2E7D32]',
+      'Top Stories': 'bg-[#C91A25]'
+    };
+
+    let articles = [];
+    let savedIds = JSON.parse(localStorage.getItem('saved_news_ids') || '[2, 11, 15]');
+    let activeArticle = null;
+    let heroSliderIndex = 0;
+    let heroSliderTimer = null;
+    let isSpeaking = false;
+
+    // Smart Dynamic Time-Ago Formatting
+    function formatTimeAgo(ts) {
+      if (!ts) return "Just now";
+      const diff = Date.now() - ts;
+      if (diff < 0) return "Just now";
+      const m = Math.floor(diff / 60000);
+      const h = Math.floor(diff / 3600000);
+      const d = Math.floor(diff / 86400000);
+
+      if (m < 1) return "Just now";
+      if (m < 60) return `${m}m ago`;
+      if (h < 24) return `${h}h ago`;
+      if (d < 7) return `${d}d ago`;
+      return new Date(ts).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    }
+
+    // Load Live Articles from Firebase RTDB
+    async function fetchNews() {
+      try {
+        const res = await fetch(RTDB_URL);
+        const data = await res.json();
+        let list = Array.isArray(data) ? data.filter(Boolean) : Object.values(data || {});
+        list.sort((a,b) => (b.publishedAt||0) - (a.publishedAt||0));
+        if (list.length) articles = list;
+      } catch (err) {
+        console.error("Using local fallback if offline", err);
+      }
+      renderAll();
+    }
+
+    function renderAll() {
+      renderTicker();
+      renderHeroGrid();
+      renderTrendingGrid();
+      renderSportsGrid();
+      renderWhatsNewGrid();
+      renderSavedList();
+      updateSavedBadge();
+    }
+
+    // 1. Ticker
+    function renderTicker() {
+      const breaking = articles.filter(a => a.isBreaking);
+      const list = breaking.length ? breaking : articles;
+      if (list[0]) {
+        document.getElementById('tickerText').innerText = list[0].title;
+      }
+    }
+
+    function openFirstBreaking() {
+      const breaking = articles.filter(a => a.isBreaking);
+      if (breaking[0]) openArticle(breaking[0].id);
+      else if (articles[0]) openArticle(articles[0].id);
+    }
+
+    // 2. Jannah Hero Grid (1 Big Slider + 2 Small Split Tiles)
+    function renderHeroGrid() {
+      if (!articles.length) return;
+      const sliderList = articles.slice(0, 4);
+      const current = sliderList[heroSliderIndex % sliderList.length] || articles[0];
+      const subTiles = articles.slice(4, 6).length === 2 ? articles.slice(4, 6) : articles.slice(1, 3);
+
+      const catBadge = BADGE_COLORS[current.category] || 'bg-[#C91A25]';
+
+      // Big Hero Box
+      document.getElementById('heroMainBox').innerHTML = `
+        <div onclick="openArticle(${current.id})" class="w-full h-full relative cursor-pointer group">
+          <img src="${current.imageUrl || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+          
+          <!-- Category Badge & Text overlay -->
+          <div class="absolute bottom-3 left-3 right-3 text-white">
+            <span class="${catBadge} text-[10px] font-black uppercase px-2 py-0.5 rounded tracking-wide shadow-xs">${current.category || 'News'}</span>
+            <h1 class="font-bold text-base leading-snug line-clamp-2 mt-1.5 font-sans">${current.title}</h1>
+            <p class="text-[11px] text-slate-300 mt-1 font-medium">${current.author || 'Staff'} • ${formatTimeAgo(current.publishedAt)}</p>
+          </div>
+
+          <!-- Carousel Pager Dots (Top Right) -->
+          <div class="absolute top-2.5 right-2.5 flex space-x-1.5">
+            ${sliderList.map((_, i) => `
+              <span class="w-1.5 h-1.5 rounded-full ${i === (heroSliderIndex % sliderList.length) ? 'bg-[#E65100] w-2.5' : 'bg-white/60'} transition-all duration-300"></span>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      // 2 Sub-Tiles (Bottom split side by side)
+      document.getElementById('heroSubTiles').innerHTML = subTiles.map(sub => {
+        const badgeCol = BADGE_COLORS[sub.category] || 'bg-[#00897B]';
+        return `
+          <div onclick="openArticle(${sub.id})" class="relative h-[125px] rounded-md overflow-hidden bg-slate-900 cursor-pointer shadow-2xs group">
+            <img src="${sub.imageUrl}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+            <div class="absolute bottom-2 left-2 right-2 text-white">
+              <span class="${badgeCol} text-[9px] font-black uppercase px-1.5 py-0.5 rounded tracking-wide">${sub.category}</span>
+              <h3 class="font-bold text-xs leading-tight line-clamp-2 mt-1 font-sans">${sub.title}</h3>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Auto-scroll Hero Slider every 5 seconds
+    if (!heroSliderTimer) {
+      heroSliderTimer = setInterval(() => {
+        heroSliderIndex++;
+        renderHeroGrid();
+      }, 5000);
+    }
+
+    // 3. Trending News (2-Column Grid)
+    function renderTrendingGrid() {
+      const items = articles.slice(1, 5);
+      document.getElementById('trendingGrid').innerHTML = items.map(art => {
+        const badgeCol = BADGE_COLORS[art.category] || 'bg-[#8E44AD]';
+        return `
+          <div onclick="openArticle(${art.id})" class="bg-white rounded-md overflow-hidden border border-slate-200/80 shadow-2xs cursor-pointer flex flex-col justify-between hover:shadow-xs transition">
+            <div>
+              <div class="relative h-28 w-full bg-slate-100">
+                <img src="${art.imageUrl}" class="w-full h-full object-cover">
+                <span class="${badgeCol} absolute bottom-1.5 left-1.5 text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded shadow-xs">${art.category}</span>
+              </div>
+              <div class="p-2.5">
+                <h4 class="font-bold text-xs leading-snug line-clamp-2 text-slate-900">${art.title}</h4>
+              </div>
+            </div>
+            <div class="px-2.5 pb-2.5">
+              <span class="text-[10px] text-slate-500 font-medium">${formatTimeAgo(art.publishedAt)}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 4. Sports Section (Dark Theme Showcase)
+    function renderSportsGrid() {
+      const sports = articles.filter(a => a.category === 'Sports' || a.category === 'Football').slice(0, 2);
+      const displayList = sports.length === 2 ? sports : articles.slice(6, 8);
+      document.getElementById('sportsGrid').innerHTML = displayList.map(sp => `
+        <div onclick="openArticle(${sp.id})" class="bg-[#112240] rounded-md overflow-hidden cursor-pointer border border-white/5">
+          <img src="${sp.imageUrl}" class="w-full h-24 object-cover">
+          <div class="p-2 space-y-1">
+            <h4 class="font-bold text-[11px] leading-tight text-white line-clamp-2">${sp.title}</h4>
+            <span class="text-[9px] text-slate-400 block">${formatTimeAgo(sp.publishedAt)}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 5. What's New Grid
+    function renderWhatsNewGrid() {
+      const items = articles.slice(5, 9);
+      document.getElementById('whatsNewGrid').innerHTML = items.map(art => {
+        const badgeCol = BADGE_COLORS[art.category] || 'bg-[#00897B]';
+        return `
+          <div onclick="openArticle(${art.id})" class="bg-white rounded-md overflow-hidden border border-slate-200/80 shadow-2xs cursor-pointer flex flex-col justify-between hover:shadow-xs transition">
+            <div>
+              <div class="relative h-28 w-full bg-slate-100">
+                <img src="${art.imageUrl}" class="w-full h-full object-cover">
+                <span class="${badgeCol} absolute bottom-1.5 left-1.5 text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded shadow-xs">${art.category}</span>
+              </div>
+              <div class="p-2.5">
+                <h4 class="font-bold text-xs leading-snug line-clamp-2 text-slate-900">${art.title}</h4>
+              </div>
+            </div>
+            <div class="px-2.5 pb-2.5">
+              <span class="text-[10px] text-slate-500 font-medium">${formatTimeAgo(art.publishedAt)}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Tab Navigation
+    function switchTab(tab) {
+      ['headlines', 'explore', 'saved', 'about'].forEach(t => {
+        document.getElementById(`tab${t.charAt(0).toUpperCase() + t.slice(1)}`).classList.toggle('hidden', t !== tab);
+        const btn = document.getElementById(`nav${t.charAt(0).toUpperCase() + t.slice(1)}`);
+        if (t === tab) {
+          btn.className = "nav-tab active flex flex-col items-center justify-center text-[#031B4D] font-bold py-1";
+        } else {
+          btn.className = "nav-tab flex flex-col items-center justify-center text-slate-500 font-medium py-1";
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Drawer Handling
+    function toggleDrawer() {
+      const drawer = document.getElementById('navDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const isOpen = !drawer.classList.contains('-translate-x-full');
+      if (isOpen) {
+        drawer.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      } else {
+        drawer.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+      }
+    }
+
+    function selectCategory(cat) {
+      toggleDrawer();
+      filterByCat(cat);
+      switchTab('explore');
+    }
+
+    // Search & Filter
+    function filterByCat(cat) {
+      document.querySelectorAll('.cat-pill').forEach(b => {
+        b.className = b.innerText.toLowerCase() === cat.toLowerCase() || (cat==='All' && b.innerText==='All') 
+          ? 'cat-pill active px-3.5 py-1 rounded-full text-xs font-bold bg-[#031B4D] text-white'
+          : 'cat-pill px-3.5 py-1 rounded-full text-xs font-bold bg-white text-slate-700 border border-slate-200';
+      });
+
+      let list = articles;
+      if (cat !== 'All') {
+        list = articles.filter(a => (a.category||'').toLowerCase() === cat.toLowerCase());
+      }
+      renderSearchResults(list);
+    }
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const list = articles.filter(a => 
+        (a.title||'').toLowerCase().includes(q) || 
+        (a.content||'').toLowerCase().includes(q) || 
+        (a.author||'').toLowerCase().includes(q)
+      );
+      renderSearchResults(list);
+    });
+
+    function renderSearchResults(list) {
+      document.getElementById('searchResults').innerHTML = list.map(a => `
+        <div onclick="openArticle(${a.id})" class="bg-white p-3 rounded-lg border border-slate-200 flex gap-3 cursor-pointer shadow-2xs">
+          <img src="${a.imageUrl}" class="w-20 h-20 rounded-md object-cover shrink-0">
+          <div class="flex-1 min-w-0">
+            <span class="text-[10px] font-bold text-appRed uppercase">${a.category}</span>
+            <h4 class="font-bold text-xs text-slate-900 line-clamp-2 mt-0.5">${a.title}</h4>
+            <span class="text-[10px] text-slate-400 mt-1 block">${formatTimeAgo(a.publishedAt)} • By ${a.author||'Desk'}</span>
+          </div>
+        </div>
+      `).join('') || '<div class="text-center py-10 text-slate-400 text-xs">No articles found.</div>';
+    }
+
+    // Article Reader Modal
+    function openArticle(id) {
+      activeArticle = articles.find(a => a.id === id);
+      if (!activeArticle) return;
+
+      const dateStr = new Date(activeArticle.publishedAt || Date.now()).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+      const timeStr = new Date(activeArticle.publishedAt || Date.now()).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const fullDate = `${dateStr} • ${timeStr} (${formatTimeAgo(activeArticle.publishedAt)})`;
+      const isBookmarked = savedIds.includes(activeArticle.id);
+
+      document.getElementById('readerBody').innerHTML = `
+        <img src="${activeArticle.imageUrl}" class="w-full h-52 rounded-lg object-cover shadow-xs">
+        <span class="bg-appRed text-white text-[10px] font-black uppercase px-2 py-0.5 rounded tracking-wide inline-block">${activeArticle.category}</span>
+        <h1 class="font-black text-lg text-slate-900 leading-snug font-sans">${activeArticle.title}</h1>
+        <p class="text-xs text-slate-500 font-medium">🕒 ${fullDate} • By ${activeArticle.author || 'Staff'}</p>
+        <div class="text-xs text-slate-700 leading-relaxed font-sans pt-3 border-t border-slate-100 whitespace-pre-line">${activeArticle.content || activeArticle.subtitle || 'No content available.'}</div>
+        
+        <div class="pt-3 border-t flex gap-2">
+          <button onclick="shareLink('${activeArticle.title}', ${activeArticle.id})" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold py-2 rounded-lg transition">📤 Share Article</button>
+          <button onclick="toggleBookmarkActive()" class="flex-1 bg-[#031B4D] hover:bg-[#092565] text-white text-xs font-bold py-2 rounded-lg transition">${isBookmarked ? '✓ Bookmarked' : '🔖 Save Story'}</button>
+        </div>
+      `;
+
+      document.getElementById('readerModal').classList.remove('hidden');
+    }
+
+    function closeReader() {
+      document.getElementById('readerModal').classList.add('hidden');
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      isSpeaking = false;
+      document.getElementById('btnAudio').innerHTML = '<span>▶</span> <span>Listen</span>';
+    }
+
+    function toggleAudioReader() {
+      if (!activeArticle || !window.speechSynthesis) return;
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        document.getElementById('btnAudio').innerHTML = '<span>▶</span> <span>Listen</span>';
+      } else {
+        const text = `${activeArticle.title}. ${activeArticle.subtitle || ''}. ${activeArticle.content || ''}`;
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.onend = () => {
+          isSpeaking = false;
+          document.getElementById('btnAudio').innerHTML = '<span>▶</span> <span>Listen</span>';
+        };
+        window.speechSynthesis.speak(utter);
+        isSpeaking = true;
+        document.getElementById('btnAudio').innerHTML = '<span>⏹</span> <span>Stop</span>';
+      }
+    }
+
+    // Bookmark Handling
+    function toggleBookmarkActive() {
+      if (!activeArticle) return;
+      if (savedIds.includes(activeArticle.id)) {
+        savedIds = savedIds.filter(x => x !== activeArticle.id);
+      } else {
+        savedIds.push(activeArticle.id);
+      }
+      localStorage.setItem('saved_news_ids', JSON.stringify(savedIds));
+      updateSavedBadge();
+      renderSavedList();
+      openArticle(activeArticle.id);
+    }
+
+    function updateSavedBadge() {
+      const badge = document.getElementById('navSavedBadge');
+      if (badge) badge.innerText = savedIds.length;
+      const countEl = document.getElementById('savedCountBadge');
+      if (countEl) countEl.innerText = savedIds.length;
+    }
+
+    function renderSavedList() {
+      const savedArticles = articles.filter(a => savedIds.includes(a.id));
+      document.getElementById('savedList').innerHTML = savedArticles.map(a => `
+        <div onclick="openArticle(${a.id})" class="bg-white p-3 rounded-lg border border-slate-200 flex justify-between items-center cursor-pointer shadow-2xs">
+          <div class="flex-1 pr-2">
+            <h4 class="font-bold text-xs text-slate-900 line-clamp-2">${a.title}</h4>
+            <span class="text-[10px] text-slate-400 mt-1 block">${formatTimeAgo(a.publishedAt)}</span>
+          </div>
+          <button onclick="event.stopPropagation(); removeBookmark(${a.id})" class="text-appRed font-bold text-xs p-1.5 hover:bg-red-50 rounded">✕</button>
+        </div>
+      `).join('') || '<div class="text-center py-12 text-slate-400 text-xs">No saved bookmarks.</div>';
+    }
+
+    function removeBookmark(id) {
+      savedIds = savedIds.filter(x => x !== id);
+      localStorage.setItem('saved_news_ids', JSON.stringify(savedIds));
+      updateSavedBadge();
+      renderSavedList();
+    }
+
+    function shareLink(title, id) {
+      const url = `https://official1.online/?id=${id}`;
+      if (navigator.share) {
+        navigator.share({ title: title, url: url });
+      } else {
+        navigator.clipboard.writeText(url);
+        alert("Link copied: " + url);
+      }
+    }
+
+    function expandMoreStories() {
+      switchTab('explore');
+    }
+
+    // Admin Publisher
+    function openAdminModal() {
+      document.getElementById('adminModal').classList.remove('hidden');
+    }
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.add('hidden');
+    }
+
+    async function publishArticle() {
+      const title = document.getElementById('admTitle').value.trim();
+      const content = document.getElementById('admContent').value.trim();
+      const category = document.getElementById('admCategory').value;
+      const author = document.getElementById('admAuthor').value.trim() || 'Admin';
+      const imageUrl = document.getElementById('admImage').value.trim() || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80';
+      const isBreaking = document.getElementById('admBreaking').checked;
+
+      if (!title || !content) return alert("Title and Content are required!");
+
+      const btn = document.getElementById('btnPublish');
+      btn.innerText = "⏳ Publishing...";
+      const newId = Date.now();
+
+      try {
+        await fetch(`${RTDB_URL.replace('.json', '')}/${newId}.json`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            id: newId,
+            title,
+            content,
+            category,
+            author,
+            imageUrl,
+            isBreaking,
+            publishedAt: Date.now(),
+            readTimeMinutes: 3,
+            viewCount: 1
+          })
+        });
+        alert("Article published successfully to live App & Website!");
+        closeAdminModal();
+        fetchNews();
+      } catch (e) {
+        alert("Publish failed: " + e.message);
+      } finally {
+        btn.innerText = "🚀 Publish to Live App & Web";
+      }
+    }
+
+    // Initial Fetch
+    fetchNews();
+    setInterval(fetchNews, 15000);
+  </script>
+</body>
+</html>

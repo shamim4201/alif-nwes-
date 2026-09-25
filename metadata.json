@@ -1,0 +1,6 @@
+{
+  "name": "Alif Shen News",
+  "description": "Comprehensive Alif Shen Group News and Media platform with breaking stories, editorial publishing studio, categories, and SEO-ready metadata.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

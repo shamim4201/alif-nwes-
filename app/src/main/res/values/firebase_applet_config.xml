@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="firestore_database_id" translatable="false">ai-studio-android-usnews-8c140f6c-a99e-46ae-84ea-b98a606cea87</string>
+    <string name="firebase_database_url" translatable="false">https://project-ff8aa870-1a80-48d9-8d2-default-rtdb.firebaseio.com</string>
+</resources>
